@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance Booking</title>
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="./ambulance.css">
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm" data-bs-theme="dark">
+        <div class="container-fluid px-4 py-2">
+            <a href="./index.html"><img style="height: 2rem;" class="button-pic" style="margin-right: 1rem;" src="./icons/back2.png" alt="back"></a>
+
+            <a class="navbar-brand fw-bold text-uppercase" href="#">Medivance</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="#">Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header style="border-top-left-radius: 0%; border-top-right-radius: 0%;">
+        <h1>Ambulance Booking</h1>
+        <p>Book an ambulance for immediate help</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Map Section -->
+        <section id="map-container" style="height: 400px;">
+            <!-- Leaflet Map will be displayed here -->
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <h2>Find Available Ambulances</h2>
+            <div class="search-container">
+                <input type="text" id="search-location" placeholder="Search for location...">
+                <button class="search-btn">Search</button>
+            </div>
+        </section>
+
+        <!-- Ambulance Cards Section -->
+        <section class="ambulance-list">
+            <h2>Available Ambulances</h2>
+            <!-- Example Ambulance Card 1 -->
+            <div class="ambulance-card" data-location="New Delhi">
+                <div class="ambulance-info">
+                    <h3>Ambulance #1</h3>
+                    <p>Location: New Delhi</p>
+                    <p>Arrival Time: 10 minutes</p>
+                    <p>Type: Basic Life Support (BLS)</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+            <!-- Example Ambulance Card 2 -->
+            <div class="ambulance-card" data-location="Mumbai">
+                <div class="ambulance-info">
+                    <h3>Ambulance #2</h3>
+                    <p>Location: Mumbai</p>
+                    <p>Arrival Time: 15 minutes</p>
+                    <p>Type: Advanced Life Support (ALS)</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+            <!-- Example Ambulance Card 3 -->
+            <div class="ambulance-card" data-location="Bangalore">
+                <div class="ambulance-info">
+                    <h3>Ambulance #3</h3>
+                    <p>Location: Bangalore</p>
+                    <p>Arrival Time: 20 minutes</p>
+                    <p>Type: Critical Care Ambulance</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Ambulance Booking. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize the map with OpenStreetMap (set to India)
+var map = L.map('map-container').setView([20.5937, 78.9629], 5); // India centered (lat, lon)
+
+// Set up the OpenStreetMap tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Function to add a marker for ambulances
+function addMarker(lat, lon, title, location) {
+    var marker = L.marker([lat, lon]).addTo(map);
+    marker.bindPopup(`<b>${title}</b><br>Location: ${location}`).openPopup();
+}
+
+// Add ambulance markers (example locations in India)
+addMarker(28.6139, 77.2090, "Ambulance #1", "New Delhi");  // New Delhi
+addMarker(19.0760, 72.8777, "Ambulance #2", "Mumbai");     // Mumbai
+addMarker(12.9716, 77.5946, "Ambulance #3", "Bangalore"); // Bangalore
+
+// Function to filter ambulances based on location input
+function searchAmbulances() {
+    const locationQuery = document.getElementById("search-location").value.toLowerCase();
+    const ambulanceCards = document.querySelectorAll(".ambulance-card");
+
+    ambulanceCards.forEach(card => {
+        const cardLocation = card.querySelector("p").innerText.toLowerCase();
+
+        if (cardLocation.includes(locationQuery)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Event listener for search button
+document.querySelector(".search-btn").addEventListener("click", searchAmbulances);
+
+// Function to handle ambulance booking (just a placeholder for now)
+function bookAmbulance(location) {
+    alert(`Booking an ambulance to: ${location}`);
+}
+
+// Add event listeners to book buttons
+document.querySelectorAll('.book-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const location = this.closest('.ambulance-card').dataset.location;
+        bookAmbulance(location);
+    });
+});
+
+    </script>
+
+</body>
+</html>

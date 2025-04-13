@@ -1,0 +1,54 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Interface</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="padding:10px;">
+    <div class="container">
+        <header>
+            <h1>Blood Bank Interface</h1>
+            <p>Check, Order, and Request Blood Easily</p>
+        </header>
+        
+        <div class="cards">
+            <!-- Blood Availability Section -->
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h2>Blood Availability</h2>
+                <p>Check the current stock of blood</p>
+                <button class="btn" id="checkAvailability">
+                   <h3><i class="fas fa-search"></i> Check Availability</h3>
+                </button>
+            </div>
+
+            <!-- Order Blood Section -->
+            <div class="card">
+                <h3><div class="icon"></h3>
+                    <i class="fas fa-cart-plus"></i>
+                </div>
+                <h2>Order Blood</h2>
+                <p>Order the required blood type</p>
+                <button class="btn" id="orderBlood">
+                   <h3> <i class="fas fa-shopping-cart"></i> Order blood</h3>
+                            </button>
+            </div>
+
+            <!-- Request Blood Section -->
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h2>Request Blood</h2>
+                <p>Request blood for emergency</p>
+                <button class="btn" id="requestBlood">
+                    <h3><i class="fas fa-heart"></i> Request Blood</h3>
+                               </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

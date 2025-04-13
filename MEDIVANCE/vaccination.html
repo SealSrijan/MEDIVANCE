@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Booking App</title>
+    <link rel="stylesheet" href="./vaccination.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</head>
+<body class="bg-light p-0">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm" data-bs-theme="dark">
+        <div class="container-fluid px-4 py-2">
+            <a href="./index.html" class="navbar-brand fw-bold text-uppercase" href="#">Medivance</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="#">Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="rounded-top-0">
+        <h1>Vaccination Booking</h1>
+        <p class="p-2">Book your vaccination appointment with detailed options</p>
+
+        <!-- Search and Filter Section -->
+        <div class="search-bar-container">
+            <input class="p-3" type="text" id="search-vaccine" placeholder="Search Vaccine..." onkeyup="filterVaccines()">
+            <select id="age-group" onchange="filterVaccines()">
+                <option value="all">All Ages</option>
+                <option value="children">Children (5-12 years)</option>
+                <option value="adults">Adults (18+ years)</option>
+                <option value="elderly">Elderly (60+ years)</option>
+            </select>
+            <select class="p-3" id="vaccine-type" onchange="filterVaccines()">
+                <option value="all">All Vaccines</option>
+                <option value="covid">COVID-19 Vaccines</option>
+                <option value="flu">Flu Vaccines</option>
+                <option value="hepatitis">Hepatitis Vaccines</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <section class="vaccine-list">
+            <h2>Available Vaccines</h2>
+
+            <!-- Vaccine Cards -->
+            <div class="vaccine-card" data-name="COVID-19 Vaccine" data-age="adults" data-type="covid" data-price="0">
+                <img style="height: 150px; width: 150px;" src="/icons/syrn.png" alt="COVID-19 Vaccine">
+                <div class="vaccine-info">
+                    <h3>COVID-19 Vaccine</h3>
+                    <p class="price">Free</p>
+                    <p class="age-group">Age Group: Adults (18+)</p>
+                    <p class="availability">Availability: Available</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="vaccine-card" data-name="Flu Vaccine" data-age="adults" data-type="flu" data-price="500">
+                <img style="height: 150px; width: 150px;" src="/icons/syrn.png" alt="Flu Vaccine">
+                <div class="vaccine-info">
+                    <h3>Flu Vaccine</h3>
+                    <p class="price">₹500</p>
+                    <p class="age-group">Age Group: Adults (18+)</p>
+                    <p class="availability">Availability: Available</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="vaccine-card" data-name="Hepatitis Vaccine" data-age="adults" data-type="hepatitis" data-price="1200">
+                <img style="height: 150px; width: 150px;" src="/icons/syrn.png" alt="Hepatitis Vaccine">
+                <div class="vaccine-info">
+                    <h3>Hepatitis Vaccine</h3>
+                    <p class="price">₹1200</p>
+                    <p class="age-group">Age Group: Adults (18+)</p>
+                    <p class="availability">Availability: Available</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="vaccine-card" data-name="COVID-19 Vaccine for Children" data-age="children" data-type="covid" data-price="0">
+                <img style="height: 150px; width: 150px;" src="/icons/syrn.png" alt="COVID-19 Vaccine for Children">
+                <div class="vaccine-info">
+                    <h3>COVID-19 Vaccine for Children</h3>
+                    <p class="price">Free</p>
+                    <p class="age-group">Age Group: Children (5-12)</p>
+                    <p class="availability">Availability: Available</p>
+                    <button class="book-btn">Book Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <p>No items added yet. Start adding vaccines to your cart!</p>
+            <button class="view-cart-btn">View Cart</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vaccination Booking App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function filterVaccines() {
+            const searchQuery = document.getElementById("search-vaccine").value.toLowerCase();
+            const ageGroup = document.getElementById("age-group").value;
+            const vaccineType = document.getElementById("vaccine-type").value;
+
+            const vaccineCards = document.querySelectorAll(".vaccine-card");
+
+            vaccineCards.forEach(card => {
+                const name = card.getAttribute("data-name").toLowerCase();
+                const age = card.getAttribute("data-age");
+                const type = card.getAttribute("data-type");
+
+                let matchesSearch = name.includes(searchQuery);
+                let matchesAge = (ageGroup === "all" || age === ageGroup);
+                let matchesType = (vaccineType === "all" || type === vaccineType);
+
+                if (matchesSearch && matchesAge && matchesType) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

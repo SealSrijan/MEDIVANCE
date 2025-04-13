@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse Service App</title>
+    <link rel="stylesheet" href="./nurse.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm" data-bs-theme="dark">
+        <div class="container-fluid px-4 py-2">
+            <a href="./index.html"><img style="height: 2rem;" class="button-pic" style="margin-right: 1rem;" src="./icons/back2.png" alt="back"></a>
+
+            <a class="navbar-brand fw-bold text-uppercase" href="#">Medivance</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="#">Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header style="border-top-left-radius: 0%; border-top-right-radius: 0%;">
+        <h1>Nurse Hire Service</h1>
+        <p>Find professional nurses for hospital or home care</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Search and Filter Section -->
+        <section class="search-section">
+            <h2>Find a Nurse</h2>
+            <div class="search-container">
+                <input type="text" id="search-nurse" placeholder="Search Nurse...">
+                
+                <select id="nurse-type">
+                    <option value="all">Select Care Type</option>
+                    <option value="home">Home Care</option>
+                    <option value="hospital">Hospital Ward Care</option>
+                </select>
+                
+                <select id="specialization">
+                    <option value="all">Select Specialization</option>
+                    <option value="general">General Nurse</option>
+                    <option value="icu">ICU Nurse</option>
+                    <option value="pediatric">Pediatric Nurse</option>
+                </select>
+                
+                <select id="experience">
+                    <option value="all">Experience Level</option>
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option>
+                    <option value="expert">Expert</option>
+                </select>
+                
+                <button class="search-btn">Search</button>
+            </div>
+        </section>
+
+        <!-- Nurse Cards Section -->
+        <section class="nurse-list">
+            <h2>Available Nurses</h2>
+
+            <!-- Nurse Recommendations Section -->
+        <section class="recommendations">
+            <h2>Top Rated Nurses</h2>
+            <div class="recommendation-card">
+                <h3>Dr. Sreejani Sen</h3>
+                <p>Specialization: Pediatric Care</p>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Experience: 10+ years</p>
+                <button class="book-btn">Hire Now</button>
+            </div>
+        </section>
+
+            <!-- Example Nurse Card 1 -->
+            <div class="nurse-card" data-specialization="general" data-type="home" data-experience="junior">
+                <img style="width: 150px;" src="./icons/nurse.png" alt="Nurse Image">
+                <div class="nurse-info">
+                    <h3>ASIMA BOSE</h3>
+                    <p class="specialization">Specialization: General Nurse</p>
+                    <p class="experience">Experience: Junior</p>
+                    <p class="location">Location: Kolkata</p>
+                    <button class="book-btn">Hire Now</button>
+                </div>
+            </div>
+
+            <!-- Example Nurse Card 2 -->
+            <div class="nurse-card" data-specialization="icu" data-type="hospital" data-experience="expert">
+                <img style="width: 150px;" src="./icons/nurse.png" alt="Nurse Image">
+                <div class="nurse-info">
+                    <h3>SUBHRA GHOSH</h3>
+                    <p class="specialization">Specialization: ICU Nurse</p>
+                    <p class="experience">Experience: Expert</p>
+                    <p class="location">Location: Mumbai</p>
+                    <button class="book-btn">Hire Now</button>
+                </div>
+            </div>
+
+            <!-- Example Nurse Card 3 -->
+            <div class="nurse-card" data-specialization="general" data-type="home" data-experience="senior">
+                <img style="width: 150px;" src="./icons/nurse.png" alt="Nurse Image">
+                <div class="nurse-info">
+                    <h3>BANANI ROY</h3>
+                    <p class="specialization">Specialization: General Nurse</p>
+                    <p class="experience">Experience: Senior</p>
+                    <p class="location">Location: Delhi</p>
+                    <button class="book-btn">Hire Now</button>
+                </div>
+            </div>
+
+            <!-- Example Nurse Card 4 -->
+            <div class="nurse-card" data-specialization="pediatric" data-type="home" data-experience="junior">
+                <img style="width: 150px;" src="./icons/nurse.png" alt="Nurse Image">
+                <div class="nurse-info">
+                    <h3>RUPKATHA PAIK</h3>
+                    <p class="specialization">Specialization: Pediatric Nurse</p>
+                    <p class="experience">Experience: Junior</p>
+                    <p class="location">Location: Bengaluru</p>
+                    <button class="book-btn">Hire Now</button>
+                </div>
+            </div>
+
+            <!-- Example Nurse Card 5 -->
+            <div class="nurse-card" data-specialization="icu" data-type="hospital" data-experience="senior">
+                <img style="width: 150px;" src="./icons/nurse.png" alt="Nurse Image">
+                <div class="nurse-info">
+                    <h3>TITLI BISWAS</h3>
+                    <p class="specialization">Specialization: ICU Nurse</p>
+                    <p class="experience">Experience: Senior</p>
+                    <p class="location">Location: Chennai</p>
+                    <button class="book-btn">Hire Now</button>
+                </div>
+            </div>
+
+        </section>
+
+        
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Nurse Service App. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for Filter Logic -->
+    <script>
+        function filterNurses() {
+            // Get selected filters
+            const searchQuery = document.getElementById("search-nurse").value.toLowerCase();
+            const nurseType = document.getElementById("nurse-type").value;
+            const specialization = document.getElementById("specialization").value;
+            const experience = document.getElementById("experience").value;
+
+            // Get all nurse cards
+            const nurseCards = document.querySelectorAll(".nurse-card");
+
+            nurseCards.forEach(card => {
+                const cardName = card.querySelector("h3").innerText.toLowerCase();
+                const cardSpecialization = card.getAttribute("data-specialization");
+                const cardType = card.getAttribute("data-type");
+                const cardExperience = card.getAttribute("data-experience");
+
+                // Check if card matches all selected filters
+                const matchesSearch = cardName.includes(searchQuery);
+                const matchesType = (nurseType === "all" || cardType === nurseType);
+                const matchesSpecialization = (specialization === "all" || cardSpecialization === specialization);
+                const matchesExperience = (experience === "all" || cardExperience === experience);
+
+                if (matchesSearch && matchesType && matchesSpecialization && matchesExperience) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Attach filter function to input and select elements
+        document.getElementById("search-nurse").addEventListener("input", filterNurses);
+        document.getElementById("nurse-type").addEventListener("change", filterNurses);
+        document.getElementById("specialization").addEventListener("change", filterNurses);
+        document.getElementById("experience").addEventListener("change", filterNurses);
+    </script>
+
+</body>
+</html>

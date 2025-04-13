@@ -1,0 +1,177 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #52ffb8; /* Aquamarine Header */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* Map Section */
+.map-section {
+    margin-bottom: 30px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #ddd; /* Placeholder for map */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #ccc;
+    color: white;
+    font-size: 18px;
+}
+
+/* Search and Filter Section */
+.search-section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.search-container input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    flex: 1;
+}
+
+.search-container button {
+    padding: 12px 20px;
+    background-color: #52ffb8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #3fd9a4; /* Slightly darker Aquamarine for hover effect */
+}
+
+/* Ambulance Cards Section */
+.ambulance-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ambulance-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.ambulance-card:hover {
+    transform: translateY(-5px);
+}
+
+.ambulance-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.ambulance-info {
+    flex: 1;
+}
+
+.ambulance-info h3 {
+    font-size: 20px;
+    color: #0055ff; /* Blue for Ambulance Name */
+}
+
+.ambulance-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.book-btn {
+    background-color: #52ffb8; /* Aquamarine Button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: #3fd9a4; /* Slightly darker Aquamarine for hover effect */
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Responsive Design for iPhone 14 Max */
+@media screen and (max-width: 428px) {
+    body {
+        padding: 10px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .ambulance-list {
+        flex-direction: column;
+    }
+}
